@@ -1,0 +1,46 @@
+ion-img{
+    width: 15%;
+    height: 15%;
+    border-radius: solid black;
+    image-orientation: flip;
+}
+ion-content{
+    --ion-background-color: rgb(255, 192, 208);
+}
+ion-card{
+    --ion-background-color: rgb(117, 85, 85);
+    margin-top: 50px;
+    height: 80%;
+    width: 80%;
+    margin-left: 10%;
+    
+}
+ion-card-subtitle{
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Franklin Gothic Medium';
+    color: darkseagreen;
+}
+ion-card-title{
+    text-align: center;
+    font-size: 20px;
+    font-family: Tahoma;
+    color: rgb(209, 169, 182);
+}
+.img{
+    width: 15%;
+    height: 15%;
+    margin-left: 42%;
+}
+.img2{
+    width: 15%;
+    height: 15%;
+    margin-left:46%;
+    margin-top: -20px;
+}
+ion-card-content{
+    text-align: center;
+    font-size: 50%;
+    font-family: 'Franklin Gothic Medium';
+    color: rgb(215, 242, 243);
+}
