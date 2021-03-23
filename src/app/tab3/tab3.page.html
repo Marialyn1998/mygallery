@@ -1,46 +1,62 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-     CONTACTS
+      Contact List
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">CONTACTS</ion-title>
+      <ion-title size="large">Tab 3</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div class="content">
-<div class="bground">
-  <div class="pic">
-  <a href="assets/icon/1 (3).jpg"><ion-img src="assets/icon/1 (3).jpg"></ion-img></a>
-  <h3>09092938401</h3>
-  </div>
-</div>
+  
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-label position="floating">Contact Name</ion-label>
+        <ion-input [(ngModel)]="contName" enterkeyhint="search"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Family Name</ion-label>
+        <ion-input [(ngModel)]="contFamily" enterkeyhint="search"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Contact Number</ion-label>
+        <ion-input [(ngModel)]="contNumber"></ion-input>
+      </ion-item>
+      <br />
+      <ion-button expand="full" fill="solid" color="success" (click)="saveC()">Save Contact</ion-button>
 
-<div class="bground2">
-  <div class="pic2">
-  <a href="assets/icon/1 (4).jpg"><ion-img src="assets/icon/1 (4).jpg"></ion-img></a>
-  <h3>09167098321</h3>
-  </div>
-</div>
+      <ion-list>
 
-<div class="bground3">
-  <div class="pic3">
-  <a href="assets/icon/1 (2).jpg"><ion-img src="assets/icon/1 (2).jpg"></ion-img></a>
-  <h3>0930449024</h3>
-  </div>
-</div>
-
-<div class="bground4">
-  <div class="pic4">
-  <a href="assets/icon/images.jpg"><ion-img src="assets/icon/images.jpg"></ion-img></a>
-  <h3>096890240</h3>
-  </div>
-</div>
-</div>
-
-
+        <ion-item-sliding id="item100"  *ngFor="let cont of contacts">
+          <ion-item href="#">
+            <ion-avatar slot="start">
+              <img src="assets/icon/images.png">
+            </ion-avatar>
+            <ion-label>
+              <h3>{{cont.name}}</h3>
+              <h3>{{cont.family}}</h3>
+              <p>{{cont.number}}</p>
+            </ion-label>
+          </ion-item>
+      
+          <ion-item-options side="end">
+            <ion-item-option color="danger" (click)="confirmDelete(cont)">
+              <ion-icon slot="icon-only" name="trash"></ion-icon>
+          </ion-item-option>
+          <ion-item-option>
+            <ion-icon slot="icon-only" name="mail"></ion-icon>
+          </ion-item-option>
+        </ion-item-options>    
+      </ion-item-sliding>
+    </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+
