@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-tab3',
@@ -7,56 +6,33 @@ import { AlertController } from '@ionic/angular';
   styleUrls: ['tab3.page.scss']
 })
 export class Tab3Page {
-  contName ="";
-  contFamily = "";
-  contNumber ="";
+  contName = "";
+  contNumber = ""
   contacts = [];
+  constructor() {}
 
-  constructor(private alertCtrl:AlertController) {}
-
-  saveC(){
+  saveC() {
     let contact = {
-    name: this.contName,
-    family: this.contFamily,
-    number: this.contNumber
+      name: this.contName,
+      number: this.contNumber
+    }
+    this.contacts.push(contact);
+    this.clearField();
+    console.log(this.contacts);
   }
-  this.contacts.push(contact);
-  this.clearField();
-}
-
   clearField(){
-    this.contName ="";
-    this.contFamily = "";
-    this.contNumber ="";
+    this.contName = "";
+    this.contNumber = "";
   }
+  delete(i){
+    let confirmation = confirm("Are you sure you want to delete this contact?");
 
-  async confirmDelete(cont){
-    const alert = await this.alertCtrl.create({
-      header: 'Confirm Delete Contacts',
-      message: 'Remove this contact?',
-      buttons:[
-        {
-        text: 'No',
-        role: 'cancel',
-        cssClass:'icon-color',
-        handler: () => {
-            console.log('Cancel Clicked');
-        }
-        },
-        {
-          text:'Yes',
-          cssClass:'icon-color',
-          handler: () =>{
-            let index = this.contacts.indexOf(cont);
-
-            if(index > -1){
-              this.contacts.splice(index, 1);
-            }
-          }
-        }
-      ]
-    });
-    await alert.present();
+    if(confirmation == true){
+        this.contacts.splice(i, 1);
+        console.log("Deleted successfully");
+      }
+    else{
+      console.log("User cancelled");
+    }
   }
-
 }

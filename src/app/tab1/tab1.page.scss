@@ -4,8 +4,13 @@ ion-img{
     border-radius: solid black;
     image-orientation: flip;
 }
+ion-header{
+    --ion-background-color: rgb(183, 211, 224);
+}
+
+
 ion-content{
-    --ion-background-color: rgb(255, 192, 208);
+    --ion-background-color: rgb(187, 127, 142);
 }
 ion-card{
     --ion-background-color: rgb(117, 85, 85);
